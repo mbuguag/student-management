@@ -1,6 +1,7 @@
 package com.example.patient_service.patient;
 
 import com.example.patient_service.dto.PatientResponseDTO;
+import com.example.patient_service.mapper.PatientMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,5 +18,9 @@ public class PatientService {
     public List<PatientResponseDTO> getPatients(){
         List<Patient> patients = patientRepository.findAll();
 
+        return patients.stream()
+                .map( PatientMapper::toDTO)
+                .toList();
     }
 }
+

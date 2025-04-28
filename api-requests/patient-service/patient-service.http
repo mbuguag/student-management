@@ -1,0 +1,39 @@
+### Create a new Patient
+POST {{baseUrl}}/api/patients
+Content-Type: application/json
+
+
+{
+  "name": "{{$randomFirstName}} {{$randomLastName}}",
+  "email": "{{$randomEmail}}",
+  "address": "{{$randomCity}}, {{$randomCountry}}",
+  "dateOfBirth": "1990-01-01"
+}
+
+###
+
+### Get all Patients
+GET {{baseUrl}}/api/patients
+
+###
+
+### Get a Patient by ID
+GET {{baseUrl}}/api/patients/{{patientId}}
+
+###
+
+### Update a Patient
+PUT {{baseUrl}}/api/patients/{{patientId}}
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "johnupdated@example.com",
+  "address": "456 New Street",
+  "dateOfBirth": "1991-01-01"
+}
+
+###
+
+### Delete a Patient
+DELETE {{baseUrl}}/api/patients/{{patientId}}
